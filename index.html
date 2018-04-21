@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="res"></div>
+        <div class="res"></div>
+        <div class="res"></div>
+        <div class="res"></div>
+        <div class="res"></div>
+        <div class="res"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    function as(target) {
+        for (let i = 1, j = arguments.length; i < j; i++) {
+            let source = arguments[i] || {};
+            for (let prop in source) {
+                if (source.hasOwnProperty(prop)) {
+                    let value = source[prop];
+                    if (value !== undefined) {
+                        target[prop] = value;
+                    }
+                }
+            }
+        }
+        return target;
+    };
+console.log(as(10,20,50));
+
+
+
+</script>

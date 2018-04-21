@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script>
+
+function  arr(a) {
+  var ary=[]
+  for(var i=0;i<a;i++){
+      ary.push(parseInt(Math.random()*1000));
+  }
+  return ary;
+}
+var as=arr(100000);//随机生成数组
+
+//快速排序法   有一顺序或逆序的不适合使用
+function quickSort(ary){
+  var len = ary.length;//
+  if(len < 3){
+
+      return ary;//当只两个数的时候直接反回，这里就是递归的结速
+  }
+  var baseIndex = Math.floor(len/2),//向下取整
+      base = ary[baseIndex];//获取基准数字
+  var smallerAry = [],//小于base的数放一边
+      biggerAry = [];//大于base的数放一边
+  for(var i=len-1,cur;i>-1;i--){//从最后的数组最末端开始循环
+      cur=ary[i];//把元素斌给cur
+      if(i === baseIndex){
+          continue;//如果相等就跳出去
+      }
+      //如果这个元素大于小于base就放在samller数组上，否则就放bigger上
+      cur < base ? (smallerAry[smallerAry.length] = cur):(biggerAry[biggerAry.length]=cur);
+  }
+  smallerAry[smallerAry.length] = base;//最后把基准数放到smalleray最后面
+
+  return quickSort(smallerAry).concat(quickSort(biggerAry));//最后合拼数组
+}
+var time=new Date().getTime();
+
+console.log(quickSort(as));
+console.log(new Date().getTime()-time);
+
+
+
+//------------------堆排法
+
+
+
+</script>
