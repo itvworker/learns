@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="./script/3des.js"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  var josn = {
+    json: '我是谁你都不知道，都不知道你是怎么混是怎么混是怎么混是怎么混是怎么混是怎么混是怎么混是怎么混的，你就是个二货',
+    id: 124151,
+    web: 'wwww'
+  };
+  var ency = JSON.stringify(josn);
+  var key = randomArr(2048);
+
+
+
+  var encrypted = CryptoJS.TripleDES.encrypt(ency, key);
+  console.log(encrypted.toString());
+  var decrypted = CryptoJS.TripleDES.decrypt(encrypted.toString(), key);
+  var ls = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+  console.log(ls);
+
+
+  //随机生成排序密钥
+  function randomArr(i) {
+    var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMMOPQRSTUVWXYZ!@#$%^&*()_+~';
+    var key = "";
+    for (var i = 0; i < 256; i++) {
+      key += str[parseInt(Math.random() * (str.length - 1))];
+    }
+    return key;
+  }
+
+
+  // var CryptoJS = require("crypto-js");
+  //
+  // var data = [{id: 1}, {id: 2}]
+  //
+  // // Encrypt
+  // var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), 'secret key 123');
+  //
+  // // Decrypt
+  // var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+  // var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+</script>
