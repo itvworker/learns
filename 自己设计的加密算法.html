@@ -45,16 +45,12 @@ console.log('好'.charCodeAt(0).toString(16));
   function unStr(str){
       var newstr="";
       for(var i=0,l=str.length-1;i<=l;i++){
-
           if(i==l){
             newstr+=str[i].charCodeAt(0).toString(16);
-          }else{
-            newstr+=str[i].charCodeAt(0).toString(16)+',';
-          }
+          }else{}
       }
-        console.log(newstr);
       return newstr;
-
+      console.log(newstr);
   }
 
 </script>
